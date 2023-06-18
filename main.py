@@ -24,10 +24,46 @@ MENU = {
     }
 }
 
+profit = 0
+
 resources = {
     "water": 300,
     "milk": 200,
     "coffee": 100,
 }
 
-# testing git
+def is_resource_sufficient(order_ingredients):
+
+    for item in order_ingredients:
+        if order_ingredients[item] >= resources[item]:
+            print(f"Sorry there is not enough {item}.")
+            return False
+    return True
+
+def process_coins():
+    print("Please insert coins.")
+    total = int(input("How many quarters?: ")) * 0.25
+
+
+
+# TODO: 1. Print report of all coffee machine resources.
+
+# TODO: 2. Check the resources to make sure they are sufficient for the order.
+
+is_on = True
+
+while is_on:
+    choice = input("What would you like? (espresso/latte/cappuccino): ")
+    if choice == "off":
+        is_on = False
+    elif choice == "report":
+        print(f"Water: {resources['water']}ml")
+        print(f"Milk: {resources['milk']}2ml")
+        print(f"Coffee: {resources['coffee']}g")
+        print(f"Money: ${profit}")
+    else:
+        drink = MENU[choice]
+        if is_resource_sufficient(drink["ingredients"]):
+
+
+
